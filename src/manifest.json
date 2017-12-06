@@ -1,0 +1,14 @@
+{
+  "manifest_version": "0.0.1",
+  "name": "Lytics Personalization Flags",
+  "author": "Lauren Yeiser",
+  "description": "Interfaces with Lytics tag to set personalization flags",
+  "homepage_url": "http://getlytics.com",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
