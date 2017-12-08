@@ -39,6 +39,8 @@ class Landing extends Component {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, { setTours: toursToActivate });
     });
+
+    window.close();
   };
 
   updateTour = (targetValue, isChecked) => {
