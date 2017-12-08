@@ -2,24 +2,42 @@
   "name": "lytics-personalization-flags",
   "version": "0.0.1",
   "description": "Interfaces with Lytics tag to set personalization flags",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint **/*.{js,jsx} --quiet",
+    "dev": "node_modules/.bin/webpack-dev-server"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.0.0-beta.34",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.7",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-config-prettier": "2.1.1",
+    "eslint-config-react": "1.1.7",
+    "eslint-loader": "1.7.1",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
+    "flow-bin": "^0.60.1",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "style-loader": "^0.19.0",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "style-loader": "^0.19.0",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "prop-types": "^15.6.0"
   }
 }

@@ -1,4 +1,5 @@
 const path = require('path');
+// eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -6,47 +7,53 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    popup: './src/popup.jsx',
-    background: './src/background.jsx'
+    index: './src/index.jsx',
+    content: './src/content.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
+  devServer: {
+    contentBase: '/dist/',
+  },
+  devtool: 'cheap-eval-source-map',
   module: {
     rules: [
       {
         test: /\.jsx$/,
         include: [
-          path.resolve(__dirname, './src')
+          path.resolve(__dirname, './src'),
         ],
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.less$/,
         use: [{
-            loader: "style-loader" // creates style nodes from JS strings
+          loader: 'style-loader',
         }, {
-            loader: "css-loader" // translates CSS into CommonJS
+          loader: 'css-loader',
         }, {
-            loader: "less-loader" // compiles Less to CSS
-        }]
-      }
-    ]
+          loader: 'less-loader',
+        }],
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin('bundle.css'),
     new HtmlWebpackPlugin({
       inject: true,
-      chunks: ['popup'],
-      filename: 'popup.html',
-      template: './src/popup.html'
+      chunks: ['index'],
+      filename: 'index.html',
+      template: './src/index.html',
     }),
     // copy extension manifest and icons
     new CopyWebpackPlugin([
       { from: './src/manifest.json' },
-      { context: './src/assets', from: 'icon-**', to: 'assets' }
-    ])
-
-  ]
-}
+      { context: './src/assets', from: 'icon-**', to: 'assets' },
+    ]),
+  ],
+};
